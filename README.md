@@ -50,13 +50,12 @@ Also, don't worry about Hacker News' fancy sorting algorithms for the post
 homepage and comment threads.  Just sort them in some simple way:
 chronologically, alphabetically, etc.
 
-### Views
+### Release 2 : Views
 
 Implement all the views.  Don't worry about AJAX at first.
 
-## Optimize Your Learning
+<!-- ## Optimize Your Learning -->
 
-_No comment_
 
 ## Resources
 
