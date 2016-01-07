@@ -11,3 +11,14 @@
     <li><a href="/logout">logout</a></li>
   </ul>
 </div>
+
+<div id="news-feed">
+  <ul>
+  <% @posts.each do |post| %>
+      <li>
+        <p><a href="http://<%=post.url%>"><%= post.title %></a></p>
+        <p>Posted by: <a href=""><%= post.user.name %></a> | <a href="/news/<%= post.id%>">Comments</a></p>
+      </li>
+  <% end %>
+  </ul>
+</div>

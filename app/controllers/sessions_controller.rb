@@ -18,7 +18,7 @@ post '/login' do
 end
 
 post '/login/new' do
-  require 'pry'; binding.pry
+  # require 'pry'; binding.pry
   @user = User.new(params[:user])
   if @user.save
     session[:user_id] = @user.id

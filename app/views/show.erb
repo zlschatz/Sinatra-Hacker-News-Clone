@@ -1,0 +1,45 @@
+<div id="nav-bar">
+  <ul>
+    <li><h1>Hacker News!</h1></li>
+    <li>new</li>
+    <li>comments</li>
+    <li>show</li>
+    <li>ask</li>
+    <li>jobs</li>
+    <li><a href="/submit">submit</li>
+    <li><a href="/login">login</a></li>
+    <li><a href="/logout">logout</a></li>
+  </ul>
+</div>
+
+<div id="single-post">
+    <p><%= @post.title %></a></p>
+    <p>Posted by: <a href=""><%= @post.user.name %></a> | <a href="/news/<%= @post.id %>">Comments</a></p>
+</div>
+
+<form action="/news/<%= @post.id %>" method="POST">
+    <textarea id="content" type="text" cols="70" rows="10" name="comment[content]"></textarea>
+    <input type="hidden" name="comment[user_id]" id="user_id" value="<%= current_user.id %>">
+    <input type="hidden" name="comment[post_id]" id="post_id" value="<%= @post.id %>">
+    <p><input type="submit" value="add comment" class="button"></p>
+</form>
+
+<% if @post.user.id == current_user.id %>
+    <form action="/news/<%= @post.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete" class="button">
+  </form>
+<% end %>
+
+<% if !@comments.nil? %>
+    <div id="comment-container">
+        <ul>
+            <% @comments.each do |comment| %>
+                <li>
+                    <p><%= comment.user.name %></p>
+                    <p>Comment: <%= comment.content%></p>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

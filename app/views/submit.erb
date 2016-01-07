@@ -3,9 +3,23 @@
     <label for="post-title">Title:</label>
     <input type="text" name="post[title]" id="post-title">
 
-    <label for="link">link:</label>
-    <input type="text" name="link" id="link">
+    <label for="post-url">url:</label>
+    <input type="text" name="post[url]" id="post-url">
+
+    <label for="post-story">story:</label>
+    <input type="text" name="post[story]" id="post-story">
+
+    <input type="hidden" name="post[user_id]" value="<%= current_user.id %>">
 
     <input type="submit" value="Post to Hacker News" class="button">
 
+
   </form>
+
+    <% if @errors %>
+    <ul>
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
