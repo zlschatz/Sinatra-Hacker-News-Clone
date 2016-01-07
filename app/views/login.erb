@@ -1,0 +1,40 @@
+<h3>Login</h3>
+
+  <form action="/login" method="POST">
+
+    <label for="user-name">username:</label>
+    <input type="text" name="user[name]" id="user-name">
+
+    <label for="user-password">password:</label>
+    <input type="password" name="user[password_hash]" id="user-password">
+
+    <input type="submit" value="login" class="button">
+
+  </form>
+
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<h3><a href="#">Forgot your password?</a></h3>
+
+<h3>Create Account</h3>
+
+  <form action="/login/new" method="POST">
+
+    <label for="user-name">username:</label>
+    <input type="text" name="user[name]" id="user-name">
+
+    <label for="user-email">email:</label>
+    <input type="text" name="user[email]" id="user-email">
+
+    <label for="new-user-password">password:</label>
+    <input type="password" name="user[password_hash]" id="user-password">
+
+    <input type="submit" value="create account" class="button">
+
+  </form>
