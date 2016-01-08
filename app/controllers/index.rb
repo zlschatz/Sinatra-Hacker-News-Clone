@@ -8,27 +8,8 @@ get '/news' do
   erb :index
 end
 
-get '/submit' do
-  if logged_in?
-    erb :submit
-  else
-    erb :login
-  end
-end
-
-post '/submit' do
-  @post = Post.new(params[:post])
-  if @post.save
-    redirect '/news'
-  else
-    @errors = @post.errors.full_messages
-    erb :submit
-  end
-end
-
 get '/news/:id' do
   @post = Post.find_by(id: params[:id])
-  # require 'pry'; binding.pry
   @comments = @post.comments
   erb :show
 end
