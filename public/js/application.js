@@ -4,11 +4,10 @@ $(document).ready(function() {
     event.preventDefault();
     var href = $(event.target).attr('href')
     $.ajax({
-      type: 'GET',
+      type: 'get',
       url : href,
       data: $(this).serialize
     }).done(function(response){
-      debugger;
       $("#up_vote").replaceWith(response);
     });
   });
