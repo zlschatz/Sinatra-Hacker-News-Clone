@@ -1,4 +1,6 @@
+  require 'bcrypt'
 class User < ActiveRecord::Base
+  include BCrypt
   # Remember to create a migration!
   validates :name, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
@@ -7,4 +9,15 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :comment_votes
   has_many :post_votes
+
+
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+
 end

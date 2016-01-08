@@ -6,6 +6,6 @@ get '/vote/:id' do
   if logged_in? && @post.save && request.xhr?
     erb :_vote_partial, locals: {post: @post}, layout: false
   else
-    redirect '/login'
+    erb :submit
   end
 end
