@@ -1,4 +1,6 @@
 get '/post/:id/post_vote' do
+  @posts = Post.all
+  @users = User.all
   erb :index
 end
 
