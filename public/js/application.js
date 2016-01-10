@@ -5,7 +5,7 @@ $(document).ready(function() {
     var target = $(event.target)
     $.ajax({
       type: "POST",
-      url : $(event.target).attr('href'),
+      url : target.attr('href'),
       data: $(this).serialize()
     }).done(function(response){
       $(target).replaceWith(response);
