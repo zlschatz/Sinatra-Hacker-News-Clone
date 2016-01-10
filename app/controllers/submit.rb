@@ -2,7 +2,7 @@ get '/submit' do
   if logged_in?
     erb :submit
   else
-    erb :login
+    redirect '/login'
   end
 end
 
