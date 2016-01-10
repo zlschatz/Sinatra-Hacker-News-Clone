@@ -5,8 +5,7 @@ end
 
 post '/login' do
   @user = User.find_by(name: params[:user][:name])
-
-  if @user && @user.password_hash == (params[:user][:password_hash])
+  if @user && @user.password == (params[:user][:password])
     session[:user_id] = @user.id
     redirect '/news'
   else

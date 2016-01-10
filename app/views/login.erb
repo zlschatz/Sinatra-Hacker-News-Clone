@@ -1,15 +1,16 @@
+<div id="login-page">
+
 <h3>Login</h3>
 
   <form action="/login" method="POST">
+    <ul id="remove-list-style">
 
-    <label for="user-name">username:</label>
-    <input type="text" name="user[name]" id="user-name">
+      <li><label for="user-name">username:</label><input type="text" name="user[name]" id="user-name"></li>
 
-    <label for="user-password">password:</label>
-    <input type="password" name="user[password_hash]" id="user-password">
+      <li><label for="user-password">password:</label><input type="password" name="user[password]" id="user-password"></li>
 
-    <input type="submit" value="login" class="button">
-
+      <li><input type="submit" value="login" class="button"></li>
+    </ul>
   </form>
 
   <% if @errors %>
@@ -25,16 +26,19 @@
 <h3>Create Account</h3>
 
   <form action="/login/new" method="POST">
+    <ul id="remove-list-style">
 
-    <label for="user-name">username:</label>
-    <input type="text" name="user[name]" id="user-name">
+    <li><label for="user-name">username:</label>
+    <input type="text" name="user[name]" id="user-name"></li>
 
-    <label for="user-email">email:</label>
-    <input type="text" name="user[email]" id="user-email">
+    <li><label for="user-email">email:    </label>
+    <input type="text" name="user[email]" id="user-email"></li>
 
-    <label for="new-user-password">password:</label>
-    <input type="password" name="user[password_hash]" id="user-password">
+    <li><label for="new-user-password">password:</label>
+    <input type="password" name="user[password_hash]" id="user-password"></li>
 
     <input type="submit" value="create account" class="button">
 
   </form>
+
+</div>

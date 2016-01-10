@@ -4,10 +4,61 @@
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
 }
+
 th {
   text-align: left;
 }
 
 #nav-bar ul{
   list-style: none;
+  width: 90%;
+  background-color: #FF6600;
+  height: 2em;
+  line-height: 2em;
+  margin: 0 auto;
+  margin-top: 0.5em;
+}
+
+#nav-bar ul li{
+  display: inline;
+ /* width: 60px;*/
+ /*padding: 10px;*/
+}
+
+#float-right{
+  float: right;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+#news-feed{
+  width: 92.5%;
+  margin: 0 auto;
+  background-color: #F6F6EF;
+}
+
+#remove-list-style{
+  list-style: none;
+}
+
+#post-title{
+  font-size: 1.5em;
+}
+
+#single-post{
+  width: 92.5%;
+  margin: 0 auto;
+  background-color: #F6F6EF;
+  padding-left: 2em;
+}
+
+#login-page{
+  width: 91%;
+  margin: 0 auto;
+  background-color: #F6F6EF;
+  padding-left: 2em;
+}
+
+h5 {
+  color: grey;
 }

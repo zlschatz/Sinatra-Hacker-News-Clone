@@ -18,6 +18,27 @@
   <title>Hacker News</title>
 </head>
 <body>
+  <div id="nav-bar">
+    <ul>
+      <li>Hacker News</li>
+      <li>new</li>
+      <li>|</li>
+      <li>comments</li>
+      <li>|</li>
+      <li>show</li>
+      <li>|</li>
+      <li>ask</li>
+      <li>|</li>
+      <li>jobs</li>
+      <li>|</li>
+      <li><a href="/submit">submit</a></li>
+      <% if logged_in? %>
+        <li><a href="/logout" id="float-right">logout</a></li>
+      <% else %>
+        <li><a href="/login" id="float-right">login</a></li>
+      <% end %>
+    </ul>
+  </div>
   <%= yield %>
 </body>
 </html>

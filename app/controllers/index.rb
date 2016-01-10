@@ -17,12 +17,10 @@ end
 post '/news/:id' do
   @post = Post.find_by(id: params[:id])
   @comment = Comment.new(params[:comment])
-  # require 'pry'; binding.pry
   if @comment.save
     redirect "/news/#{@post.id}"
   else
-    @errors = @comment.errors.full_messages
-    erb :show
+    redirect "news/#{@post.id}"
   end
 end
 
