@@ -5,9 +5,10 @@ end
 
 post '/login' do
   @user = User.find_by(name: params[:user][:name])
+  binding.pry
   if @user && @user.password == (params[:user][:password])
     session[:user_id] = @user.id
-    redirect '/news'
+    erb :index
   else
     @errors =["Either the username or password is incorrect"]
     erb :login

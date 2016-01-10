@@ -3,7 +3,7 @@
   <% @posts.each do |post| %>
       <li>
         <p id="post-title"><a href="http://<%=post.url%>"><%= post.title %></a></p>
-        <p><a href="/vote/<%=post.id%>" id="up_vote">&uarr; Votes: <%= post.post_votes.count %></a> | Posted by: <a href="#"><%= post.user.name %></a> | <a href="/news/<%= post.id%>">Comments</a></p>
+        <p><a href="/vote/<%=post.id%>" class="up_vote">&uarr; Votes: <%= post.post_votes.count %></a> | Posted by: <a href="#"><%= post.user.name %></a> | <a href="/news/<%= post.id%>">Comments</a></p>
       </li>
 
       <% if @errors %>
