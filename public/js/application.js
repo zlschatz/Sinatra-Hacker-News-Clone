@@ -9,6 +9,8 @@ $(document).ready(function() {
       data: $(this).serialize()
     }).done(function(response){
       $(target).replaceWith(response);
+    }).fail(function(){
+      alert("Your request has failed");
     });
   });
 
