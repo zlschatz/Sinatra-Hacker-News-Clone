@@ -2,15 +2,13 @@ $(document).ready(function() {
 
   $(".up_vote").on("click", function(event){
     event.preventDefault();
-    // var target = $(event.target)
-    // debugger
+    var vote_count = $(event.target).parent().parent().find('#vote_count')
     $.ajax({
       type: "POST",
       url : $(this).attr('href'),
-      data: $(this).serialize()
+      dataType: "json",
     }).done(function(response){
-    debugger
-    //   $(target).replaceWith(response);
+      vote_count.text(response.vote_count);
     }).fail(function(){
       alert("Your vote has not been cast!");
     });
