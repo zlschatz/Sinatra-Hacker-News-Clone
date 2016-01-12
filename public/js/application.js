@@ -17,7 +17,7 @@ $(document).ready(function() {
   $("#comment-container").on("click", ".up_vote", function(event){
     event.preventDefault();
     var target = $(event.target).parent().find("#vote_count")
-    // debugger
+    debugger
     $.ajax({
       type: "POST",
       url : $(this).attr('href'),

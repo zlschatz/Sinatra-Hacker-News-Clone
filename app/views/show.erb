@@ -23,7 +23,7 @@
         <ul id="remove-list-style">
             <% @comments.each do |comment| %>
                 <li>
-                    <h5><a href="/comment/<%= comment.id %>/comment_vote" class="up_vote">&uarr;</a> Votes: <span id="vote_count">0</span> | <%= comment.user.name %></h5>
+                    <h5><a href="/comment/<%= comment.id %>/comment_vote" class="up_vote">&uarr;</a> Votes: <span id="vote_count"></span> | <%= comment.user.name %></h5>
                     <p>Comment: <%= comment.content%></p>
                 </li>
             <% end %>
