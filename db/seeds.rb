@@ -1,4 +1,4 @@
-(1..5).to_a.each do |number|
+(1..10).to_a.each do |number|
 user = User.create(name: "User#{number}", email: "User#{number}@gmail.com", password: "password")
 post = Post.create(title: "Post #{number}", url: "www.post#{number}.com", story: "Post#{number} description", user: user)
 comment = Comment.create(content: "Comment #{number}", post: post, user: user)
