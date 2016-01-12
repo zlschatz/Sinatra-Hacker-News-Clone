@@ -17,10 +17,11 @@ end
 post '/news/:id' do
   @post = Post.find_by(id: params[:id])
   @comment = Comment.new(params[:comment])
-  if @comment.save
-    redirect "/news/#{@post.id}"
-  else
-    redirect "news/#{@post.id}"
+  binding.pry
+  if request.xhr? && @comment.save
+    # @comments = @post.comments
+    binding.pry
+    erb :_add_comment, locals: {comment: comment}, layout: false
   end
 end
 

@@ -2,6 +2,7 @@
     <h3><%= @post.title %></a></h3>
     <p>Posted by: <a href=""><%= @post.user.name %></a> | <a href="/news/<%= @post.id %>">Comments</a></p>
 
+<div id="add-comment">
 <form action="/news/<%= @post.id %>" method="POST">
     <textarea id="content" type="text" cols="70" rows="10" name="comment[content]"></textarea>
     <% if logged_in? %>
@@ -10,7 +11,7 @@
     <input type="hidden" name="comment[post_id]" id="post_id" value="<%= @post.id %>">
     <p><input type="submit" value="add comment" class="button"></p>
 </form>
-
+</div>
 <% if logged_in? && @post.user.id == current_user.id %>
     <form action="/news/<%= @post.id %>" method="POST">
         <input type="hidden" name="_method" value="delete">
@@ -21,12 +22,14 @@
 <% if !@comments.nil? %>
     <div id="comment-container">
         <ul id="remove-list-style">
+            <div id="comment-list">
             <% @comments.each do |comment| %>
                 <li>
-                    <h5><a href="/comment/<%= comment.id %>/comment_vote" class="up_vote">&uarr;</a> Votes: <span id="vote_count"></span> | <%= comment.user.name %></h5>
+                    <h5><a href="/comment/<%= comment.id %>/comment_vote" class="up_vote">&uarr;</a> Votes: <span id="vote_count"><%= comment.comment_votes.count %></span> | <%= comment.user.name %></h5>
                     <p>Comment: <%= comment.content%></p>
                 </li>
             <% end %>
+            </div>
         </ul>
     </div>
 <% end %>
