@@ -7,12 +7,13 @@ $(document).ready(function() {
     // you need to update. Then return that id in the json and just directly,
     // access it with the selector $('vote_count post-'+ resonse.post_id ).text()
     var vote_count = $(event.target).parent().parent().find('#vote_count');
-
+    debugger
     $.ajax({
-      type: $(this).attr('method'),
+      type: "POST",
       url : $(this).attr('href'),
       dataType: "json",
     }).done(function(response){
+      debugger
       vote_count.text(response.vote_count);
     }).fail(function(){
       alert("Your vote has not been cast!");
