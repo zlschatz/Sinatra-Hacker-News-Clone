@@ -37,6 +37,10 @@ th {
   background-color: #F6F6EF;
 }
 
+#news-feed ul li{
+  display: inline;
+}
+
 #remove-list-style{
   list-style: none;
 }
