@@ -2,8 +2,7 @@
     <h3><%= @post.title %></a></h3>
     <p>Posted by: <a href=""><%= @post.user.name %></a> | <a href="/news/<%= @post.id %>">Comments</a></p>
 
-<div id="add-comment">
-<form action="/news/<%= @post.id %>" method="POST">
+<form id="add-comment" action="/news/<%= @post.id %>" method="POST">
     <textarea id="content" type="text" cols="70" rows="10" name="comment[content]"></textarea>
     <% if logged_in? %>
     <input type="hidden" name="comment[user_id]" id="user_id" value="<%= current_user.id %>">
@@ -11,7 +10,7 @@
     <input type="hidden" name="comment[post_id]" id="post_id" value="<%= @post.id %>">
     <p><input type="submit" value="add comment" class="button"></p>
 </form>
-</div>
+
 <% if logged_in? && @post.user.id == current_user.id %>
     <form action="/news/<%= @post.id %>" method="POST">
         <input type="hidden" name="_method" value="delete">
@@ -32,6 +31,14 @@
             </div>
         </ul>
     </div>
+<% end %>
+
+<% if @errors %>
+    <ul>
+      <% @errors.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
 <% end %>
 
 </div>

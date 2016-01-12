@@ -66,3 +66,16 @@ th {
 h5 {
   color: grey;
 }
+
+#submit-page{
+  width: 91%;
+  margin: 0 auto;
+  background-color: #F6F6EF;
+  padding-left: 2em;
+}
+
+#submit-page ul li{
+  padding-top: 2em;
+  padding-bottom: 2em;
+  list-style: none;
+}

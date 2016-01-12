@@ -2,9 +2,14 @@ $(document).ready(function() {
 
   $("#news-feed").on("click", ".up_vote", function(event){
     event.preventDefault();
-    var vote_count = $(event.target).parent().parent().find('#vote_count')
+
+    // Put the ID that you need to access on the classes or id's if the div
+    // you need to update. Then return that id in the json and just directly,
+    // access it with the selector $('vote_count post-'+ resonse.post_id ).text()
+    var vote_count = $(event.target).parent().parent().find('#vote_count');
+
     $.ajax({
-      type: "POST",
+      type: $(this).attr('method'),
       url : $(this).attr('href'),
       dataType: "json",
     }).done(function(response){
@@ -30,15 +35,15 @@ $(document).ready(function() {
 
   $("#add-comment").on("submit", function(event){
     event.preventDefault();
-    debugger
     $.ajax({
       type : "POST",
       url  : $(event.target).attr('action'),
+      data : $(this).serialize()
     }).done(function(response){
-      debugger
-      $("#comment-list").html(response);
+      $("#content").val('')
+      $("#comment-list").append(response);
     }).fail(function(response){
-      alert("Something went wrong!");
+      alert("Your comment is unable to be posted!");
     });
   });
 

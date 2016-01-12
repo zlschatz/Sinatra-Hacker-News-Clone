@@ -1,8 +1,20 @@
 post '/post/:id/post_vote' do
   @post = Post.find_by(id: params[:id])
   if logged_in?
-    @posts = Post.all
-    @post_vote = PostVote.new(post_id: @post.id, user_id: current_user.id)
+
+    @post_vote = PostVote.new(post: @post, user: current_user)
+    #ZM: If you  move the "can only be voted on once per user" validation to the
+    #PostVote model, the @post.save will handle this.
+
+    # if @post_vote.valid? && request.xhr?
+    #else
+      #if request.xhr?
+        #send error back
+      #else
+        # redirect '/post/7?error=somethingwentwrong'
+      #end
+    #
+
     if @post_vote && request.xhr? && !@post.post_votes.find_by(user_id: current_user.id)
       @post.post_votes << @post_vote
       @post.save
