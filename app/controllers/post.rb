@@ -1,4 +1,4 @@
-post '/post/:id/post_vote' do
+user post '/post/:id/post_vote' do
   @post = Post.find_by(id: params[:id])
   if logged_in?
 
