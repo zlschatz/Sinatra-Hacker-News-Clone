@@ -2,10 +2,6 @@ $(document).ready(function() {
 
   $("#news-feed").on("click", ".up_vote", function(event){
     event.preventDefault();
-
-    // Put the ID that you need to access on the classes or id's if the div
-    // you need to update. Then return that id in the json and just directly,
-    // access it with the selector $('vote_count post-'+ resonse.post_id ).text()
     var vote_count = $(event.target).parent().parent().find('#vote_count');
     debugger
     $.ajax({
